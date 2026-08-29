@@ -5,6 +5,7 @@ import {
     type Page,
 } from '@playwright/test';
 import { Environment } from '../lib/env';
+import { SecurePage } from './secure.page';
 
 export class LoginPage {
 
@@ -30,6 +31,12 @@ export class LoginPage {
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
-        await expect(this.secureBanner).toContainText(message)
+        
+        const securePage = new SecurePage(this.page, this.page.context() as any);
+        await securePage.verifyBanner(message);
+    }
+
+    async verifyBanner(message: string){
+        await expect(this.secureBanner).toContainText(message);
     }
 }

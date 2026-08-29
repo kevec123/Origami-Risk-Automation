@@ -6,6 +6,7 @@ const test = baseTest.extend<{
     clientBrowser: BrowserContext;
     clientPage: Page;
     clientLoginPage: LoginPage;
+    
 
 }>({
 

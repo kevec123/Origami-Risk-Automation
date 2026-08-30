@@ -5,10 +5,11 @@ The purpose of this project is to test the automation skill through a practical,
 
 # Overview of the project
 
-This project is a Playwright Automation project with the purpose of testing a login page. The testing is done by verifying 3 test cases:
+This project is a Playwright Automation project with the purpose of testing a login page. The testing is done by verifying 4 test cases:
 1. A positive scenario where the username and password are correct
 2. A negative scenario where the username is incorrect
 3. A negative scenario where the password is incorrect
+4. A negative scenario where the test tries to navigate directly to the /secure page without login in first
 
 The structure of the project is that of a playwright project with modifications to accomodate an OOP approach to the project.
 
@@ -26,7 +27,7 @@ a class like in Object Oriented Progamming. The page elements are similar to the
 The purpose of this structure is to facilitate the use of elements multiple times during a test, while also creating functions that can be resued every time the test interacts with that page. In this project, the login is done through a function where we pass the username, password and expected response in order to test the positive and negative test cases without rewriting code.
 
 ## Tests Folder
-on the 'tests' older we have the tests files. Currently the only file on the folder is the 'login.spec.ts' which cover all 3 scenarios for this evaluation, because for this project we are following a functionality structure (if more tests were to be added, each functionality or test suite would get their own .spec.ts file)
+on the 'tests' older we have the tests files. Currently the only file on the folder is the 'login.spec.ts' which cover all 4 scenarios for this evaluation, because for this project we are following a functionality structure (if more tests were to be added, each functionality or test suite would get their own .spec.ts file)
 
 ## Playwright Config file
 

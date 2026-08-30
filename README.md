@@ -18,7 +18,7 @@ The lib folder has the base test and the env files.
 
 The base-test is a custome fixture that allows for the creation of browser sessions with specific conditions. This is used for the OOP approach of the project in order to instantiate the page object classes with the correct context and page and allows for reusability and versatility on the project.
 
-The env files contains the environment variables like the correct username, password and URL of the page we are going to be testing on.
+The env files contains the environment variables like the correct username, password and URL of the page we are going to be testing on. Normally, this file would be included on the '.gitignore' file for security reasons, but since this is a test to verify the automation of the test cases, the file haas been left on the project for ease of use.
 
 ## Page-Objects folder
 The page-objects folder has the login page file. This file allow the user to store page objects and methods for the login page simulating 

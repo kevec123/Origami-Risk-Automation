@@ -5,13 +5,15 @@ import { Environment } from '../lib/env';
 test('Verify login with correct credentials', async ({
     //This is the page we are going to be doing the test on
     clientLoginPage,
+    securePage,
 }) => {
     //This is the step where we validate the login with the correct credentials
     await test.step('Attempt login with correct credentials', async()=>{
         //We first navigate to the '/login' page
         await clientLoginPage.goto();
         //Then we attempt to login passing the correct values from the Environment file and we pass the expected message
-        await clientLoginPage.login(Environment.username, Environment.password,'You logged into a secure area!')
+        await clientLoginPage.login(Environment.username, Environment.password);
+        await securePage.verifyBanner('You logged into a secure area!');
     });
 })
 
@@ -21,7 +23,8 @@ test('Verify login with wrong username', async ({
 }) => {
     await test.step('Attempt login with wrong username', async()=>{
         await clientLoginPage.goto();
-        await clientLoginPage.login('wrong name', Environment.password, 'Your username is invalid!')
+        await clientLoginPage.login('wrong name', Environment.password);
+        await clientLoginPage.verifyBanner('Your username is invalid!');
     });
 })
 
@@ -31,7 +34,8 @@ test('Verify login with wrong password', async ({
 }) => {
     await test.step('Attempt login with wrong password', async()=>{
         await clientLoginPage.goto();
-        await clientLoginPage.login(Environment.username, 'wrong password', 'Your password is invalid!')
+        await clientLoginPage.login(Environment.username, 'wrong password');
+        await clientLoginPage.verifyBanner('Your password is invalid!');
     });
 })
 
